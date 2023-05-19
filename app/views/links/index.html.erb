@@ -1,2 +1,12 @@
 
+
 <%= link_to "Submit a new link", new_link_path %>
+
+<ul>
+  <% @links.each do |link| %>
+    <li>
+      <a href="<%= link.url %>"><%= link.title %></a>
+    </li>
+  <% end %>
+</ul>
+

@@ -21,6 +21,7 @@ group :development, :test do
   gem "pry"
   gem "guard"
   gem 'guard-rspec', require: false
+  gem "factory_bot_rails"
 end
 
 group :test do
@@ -33,3 +34,4 @@ group :development do
   # gem "rack-mini-profiler"
   # gem "spring"
 end
+
