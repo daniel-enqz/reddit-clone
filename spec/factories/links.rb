@@ -4,4 +4,3 @@ FactoryBot.define do
     url { 'http://example.com' }
   end
 end
-

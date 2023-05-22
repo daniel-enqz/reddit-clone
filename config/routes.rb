@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "links#index"
-
-  resources :links, only: [:index, :new, :create]
+  
+  resources :links, only: [:index, :new, :create] do
+    resources :votes, only: [:create, :destroy]
+  end
 end

@@ -5,7 +5,11 @@
 <ul>
   <% @links.each do |link| %>
     <li>
-      <a href="<%= link.url %>"><%= link.title %></a>
+      <a id="link_<%= link.id %>" href="<%= link.url %>">
+        <%= link.title %>
+        <%= button_to "Upvote", link_votes_path(link) %>
+        <p data-role="score"><%= link.votes %></p>
+      </a>
     </li>
   <% end %>
 </ul>
