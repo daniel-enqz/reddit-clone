@@ -1,11 +1,23 @@
 class Link < ApplicationRecord
+  validates :title, :url, presence: true
+  validates :url, uniqueness: true
+
+
   def upvote
-    self.votes += 1
+    self.upvotes += 1
     save
   end
 
   def downvote
-    self.votes -= 1
+    self.downvotes -= 1
     save
+  end
+
+  def score
+    upvotes - downvotes
+  end
+
+  def self.hottest_first
+    all.sort_by(&:score).reverse
   end
 end

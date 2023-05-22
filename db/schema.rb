@@ -16,7 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_151541) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "votes", default: 0
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
   end
 
 end

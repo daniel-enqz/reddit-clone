@@ -1,6 +1,12 @@
+require 'faker'
+
 FactoryBot.define do
   factory :link do
     title { 'テスト' }
-    url { 'http://example.com' }
+    url { Faker::Internet.url }
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end

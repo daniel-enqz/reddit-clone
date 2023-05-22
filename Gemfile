@@ -22,6 +22,8 @@ group :development, :test do
   gem "guard"
   gem 'guard-rspec', require: false
   gem "factory_bot_rails"
+  gem "shoulda-matchers"
+  gem "faker"
 end
 
 group :test do

@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   resources :links, only: [:index, :new, :create] do
     resources :votes, only: [:create, :destroy]
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :links, only: [:index, :create]
+    end
+  end
 end
