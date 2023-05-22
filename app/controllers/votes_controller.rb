@@ -6,7 +6,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:link_id])
+    @link = Link.find(params[:id])
     @link.downvote
     redirect_to root_path
   end

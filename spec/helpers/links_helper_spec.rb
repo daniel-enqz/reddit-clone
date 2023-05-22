@@ -1,15 +1,10 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the LinksHelper. For example:
-#
-# describe LinksHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe LinksHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#formatted_score_for" do
+    it "returns a formatted score for a link" do
+      link = build_stubbed(:link, upvotes: 5, downvotes: 3)
+      expect(helper.formatted_score_for(link)).to eq("2 (+5, -3)")
+    end
+  end
 end

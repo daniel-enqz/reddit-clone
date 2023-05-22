@@ -1,0 +1,10 @@
+<li id="link_<%= link.id %>">
+  <%= link_to "Upvote", link_votes_path(link), data: { "turbo_method": "post" } %>
+  <div data-role="score"><%= formatted_score_for(link) %></div>
+  <%= link_to "Downvote", vote_path(link), data: { turbo_method: "delete" } %>
+
+  <%= render link %>
+</li>
+
+
+

@@ -24,6 +24,8 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "shoulda-matchers"
   gem "faker"
+  gem "rails-controller-testing"
+  gem "email_spec"
 end
 
 group :test do

@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "links#index"
   
-  resources :links, only: [:index, :new, :create] do
-    resources :votes, only: [:create, :destroy]
+  resources :links, only: [:index, :show, :new, :create] do
+    resources :votes, only: [:create]
   end
+
+  # Delete a vote
+  delete "/votes/:id", to: "votes#destroy", as: "vote"
 
   namespace :api do
     namespace :v1 do

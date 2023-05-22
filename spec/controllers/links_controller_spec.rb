@@ -1,0 +1,24 @@
+require "rails_helper"
+
+RSpec.describe LinksController, "#create" do
+  context "if the link is invalid" do
+    it "renders the new template" do
+      post :create, params: { link: attributes_for(:link, :invalid) }
+      expect(response).to render_template :new
+    end
+  end
+
+
+  context "when the link is valid" do
+    it "sends an email to the moderators" do
+      valid_link = double(save: true)
+      allow(Link).to receive(:new).and_return(valid_link) 
+      allow(LinkMailer).to receive(:new_link)
+
+      post :create, params: { link: attributes_for(:link) }
+
+      expect(LinkMailer).to have_received(:new_link).with(valid_link) 
+    end
+  end
+end
+
